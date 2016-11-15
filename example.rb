@@ -1,9 +1,19 @@
 require_relative 'nyt_api'
-require_relative 'env'
+require 'figaro'
+
+# Load Figaro
+Figaro.application = Figaro::Application.new(
+  environment: 'development',
+  path: File.expand_path('../config/application.yml', __FILE__)
+)
+Figaro.load
 
 
-
-nyt_api = NYTAPI.new(:key => NYT_API_KEY, :debug_enabled => true)
+# Use API
+nyt_api = NYTAPI.new(
+  :key => ENV['NYT_API_KEY'],
+  :debug_enabled => true
+)
 
 full = nyt_api.get({
   :q => 'apple',

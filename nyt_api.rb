@@ -45,18 +45,23 @@ class NYTAPI
 
 
   def extract_docs(response)
-    response['response']['docs'].map do |doc|
-      {
-        :url => doc['web_url'],
-        :lead => doc['lead_paragraph'],
-        :abstract => doc['abstract'],
-        :page => doc['print_page'],
-        :source => doc['source'],
-        :headline => doc['headline'],
-        :keywords => doc['keywords'],
-        :date => doc['pub_date'],
-        :type => doc['document_type']
-      }
+    res = response['response']
+    if res.nil?
+      {}
+    else
+      res['docs'].map do |doc|
+        {
+          :url => doc['web_url'],
+          :lead => doc['lead_paragraph'],
+          :abstract => doc['abstract'],
+          :page => doc['print_page'],
+          :source => doc['source'],
+          :headline => doc['headline'],
+          :keywords => doc['keywords'],
+          :date => doc['pub_date'],
+          :type => doc['document_type']
+        }
+      end
     end
   end
 
