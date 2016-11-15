@@ -13,6 +13,7 @@ class NYTAPI
 
 
   def get(params, trim=true)
+    sleep(0.5)
     debug('')
     debug('Building URL')
     params = params.map { |k, v| [k, v.to_s] }.to_h
