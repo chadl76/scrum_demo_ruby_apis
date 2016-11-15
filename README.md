@@ -9,10 +9,10 @@ For the Ruby APIs section of Web Ruby/Scraping.
 
 ## Getting started
 
-Have a look over all the files
+Have a look over all the files:
 
-- `env.rb` is used to store the ENV variable for the API key as a constant.
-- `.gitignore` shows how to remove the `env.rb` from the Git repo
+- [Figaro](https://github.com/laserlemon/figaro) is used to store the ENV variable for the API key.
+- `.gitignore` shows how to remove the API key and `data/` folder from the Git repo
 - `data/` is where JSON files are saved
 - `nyt_api.rb` is the API wrapper class
 - `example.rb` runs the demo
